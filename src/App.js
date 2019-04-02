@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
 
 class App extends Component {
+  componentDidMount() {
+    axios.get('/common.do?method=getLottoNumber&drwNo=852')
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  }
+
   render() {
     return (
       <div className="App">
