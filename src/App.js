@@ -1,73 +1,134 @@
+// import React, { Component } from 'react';
+// import './App.css';
+// // import axios from 'axios';
+// //import Lotto from './Components/Lotto';
+
+// import { connect } from 'react-redux';
+// import * as counterActions from './modules/counter';
+// import { bindActionCreators } from 'redux';
+// import * as postActions from './modules/post';
+
+// class App extends Component {
+//   static defaultProps ={
+//     lotto: []
+//   }
+
+//   constructor(props) {
+//     super(props);
+//     this.state ={
+//       lotto:[]
+//     };
+//   }
+
+//   // componentWillMount() {
+//   //   console.log("componentWillMount");
+//   //   axios.get('/common.do?method=getLottoNumber&drwNo=852').then(res => {
+//   //     this.setState({lotto:res.data});
+//   //   });
+//   // }
+
+//   loadData = () => {
+//     const { PostActions, turn } = this.props;
+//     PostActions.getPost(turn);
+//   }
+
+//   componentDidMount() {
+//     console.log("componentDidMount");
+//     // axios.get('/common.do?method=getLottoNumber&drwNo=852')
+//     // .then(res => console.log(res))
+//     this.loadData();
+//   }
+
+//   componentDidUpdate(prevProps, prevState) {
+//     if (this.props.turn !== prevProps.turn) {
+//       this.loadData();
+//     }
+//   }
+  
+//   //_renderLotto = () => {
+//     //const lotto = this.state.lotto.map((data) => {
+//       // const lotto = this.state.lotto;
+//       // return <Lotto 
+//       //   num1={lotto.drwtNo1}
+//       //   num2={lotto.drwtNo2}
+//       //   num3={lotto.drwtNo3}
+//       //   num4={lotto.drwtNo4}
+//       //   num5={lotto.drwtNo5}
+//       //   num6={lotto.drwtNo6}
+//       //   bnus={lotto.bnusNo}
+//       // />
+//     //})
+//     //return lotto;
+//   //}
+
+//   render() {
+//     //const {lotto} = this.state;
+//     const {CounterActions, turn, post, error, loading} = this.props;
+//     //console.log("123", this.state.lotto)
+//     return (
+
+//       <div >
+//         <h1>{turn}회차</h1>
+//         <button onClick={CounterActions.increment}>+</button>
+//         <button onClick={CounterActions.decrement}>-</button>
+//         {
+//           loading
+//             ? (<h2>로딩중...</h2>)
+//             : (
+//               error
+//                 ? (<h2>오류발생!</h2>)
+//                 : (
+//                   <div>
+//                     <p>{post.drwtNo1}</p>
+//                     <p>{post.drwtNo2}</p>
+//                     <p>{post.drwtNo3}</p>
+//                     <p>{post.drwtNo4}</p>
+//                     <p>{post.drwtNo5}</p>
+//                     <p>{post.drwtNo6}</p>
+//                     <p>{post.bnusNo}</p>
+//                     <p>{post.drwNoDate}</p>
+//                   </div>
+//                 )
+//             )
+//         }
+//         {/* {this.state.lotto ? this._renderLotto() : "logding"}  */}
+//         {/* {this._renderLotto()} */}
+//       </div>
+//     );
+//   }
+// }
+
+// export default connect(
+//   (state) => ({
+//     turn: state.counter,
+//     post: state.post.data,
+//     loading: state.post.pending,
+//     error: state.post.error,
+//     //id: state.post.id
+//   }),
+//   (dispatch) => ({
+//     CounterActions: bindActionCreators(counterActions, dispatch),
+//     PostActions: bindActionCreators(postActions, dispatch)
+//   })
+// )(App);
+
+
 import React, { Component } from 'react';
 import './App.css';
-import axios from 'axios';
-import Lotto from './Components/Lotto';
+import { Route } from 'react-router-dom';
+import { Home, About} from 'pages';
+// import axios from 'axios';
+import Menu from './Components/Menu';
 
 class App extends Component {
-  static defaultProps ={
-    lotto: []
-  }
-
-  constructor(props) {
-    super(props);
-    this.state ={
-      lotto:[]
-    };
-  }
-
-  componentWillMount() {
-    console.log("componentWillMount");
-    axios.get('/common.do?method=getLottoNumber&drwNo=852').then(res => {
-      this.setState({lotto:res.data});
-    });
-  }
-
-  componentDidMount() {
-    // axios.get('/common.do?method=getLottoNumber&drwNo=852')
-    // .then(res => console.log(res))
-    // .catch(err => console.log(err))
-    //this._getLotto();
-    console.log("componentDidMount");
-  }
-
-  // _getLotto = async () => {
-  //   const lotto = await this._collApi();
-  //   this.setState({
-  //     lotto
-  //   });
-  // }
-
-  // _collApi = () => {
-  //   return axios.get('/common.do?method=getLottoNumber&drwNo=852')
-  //     .then(response => console.log('response : ', response))
-  //     .then(response => response.json())
-  //     .then(json => json.data)
-  //     //.then(json => json.data)
-  //     .catch(err => console.log(err))
-  // }
-
-  _renderLotto = () => {
-    //const lotto = this.state.lotto.map((data) => {
-      return <Lotto 
-        num1={this.state.lotto.drwtNo1}
-        num2={this.state.lotto.drwtNo2}
-        num3={this.state.lotto.drwtNo3}
-        num4={this.state.lotto.drwtNo4}
-        num5={this.state.lotto.drwtNo5}
-        num6={this.state.lotto.drwtNo6}
-        bnus={this.state.lotto.bnusNo}
-      />
-    //})
-    //return lotto;
-  }
 
   render() {
-    const {lotto} = this.state;
-    console.log("123", this.state.lotto)
     return (
-      <div className={lotto ? "App" : "App-logging"}>
-        {this.state.lotto ? this._renderLotto() : "logding"} 
-        {/* {this._renderLotto()} */}
+      <div className="App">
+        <div><h1>형민로또!</h1></div>
+        <Menu />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/about" component={About} />
       </div>
     );
   }
