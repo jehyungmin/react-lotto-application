@@ -40,20 +40,7 @@ export const getPost = (postId) => dispatch => {
 const initialState = {
     pending: false,
     error: false,
-    data: {
-        drwNo1: '',
-        drwNo2: '',
-        drwNo3: '',
-        drwNo4: '',
-        drwNo5: '',
-        drwNo6: '',
-        bnusNo: '',
-        drwNoDate: '',
-        firstAccumamnt:'',
-        firstPrzwnerCo: '',
-        firstWinamnt: '',
-        returnValue:''
-    }
+    data: {}
 }
 
 export default handleActions({
@@ -65,25 +52,46 @@ export default handleActions({
         };
     },
     [GET_POST_SUCCESS]: (state, action) => {
-        const { drwtNo1, drwtNo2, drwtNo3, drwtNo4, drwtNo5, drwtNo6, bnusNo, drwNoDate, firstAccumamnt, firstPrzwnerCo, firstWinamnt, returnValue} = action.payload.data;
-        return {
-            ...state,
-            pending: false,
-            data: {
-                drwtNo1,
-                drwtNo2,
-                drwtNo3,
-                drwtNo4,
-                drwtNo5,
-                drwtNo6,
-                bnusNo,
-                drwNoDate,
-                firstAccumamnt,
-                firstPrzwnerCo,
-                firstWinamnt,
-                returnValue
+        console.log("#### action : ", action);
+        // const { drwtNo1, drwtNo2, drwtNo3, drwtNo4, drwtNo5, drwtNo6, bnusNo, drwNoDate, firstAccumamnt, firstPrzwnerCo, firstWinamnt, returnValue} = action.payload.data;
+        const result = action.payload.data;
+
+        let newState ;
+        if ( result.returnValue !== 'success') {
+            newState = {
+                ...state,
+                error: true,
+                data: state.data
             }
-        };
+        } else {
+            newState = {
+                ...state,
+                pending: false,
+                error: false,
+                data: action.payload.data
+            }
+        }
+        
+        return newState;
+        // return {
+        //     ...state,
+        //     pending: false,
+        //     // data: {
+        //     //     drwtNo1,
+        //     //     drwtNo2,
+        //     //     drwtNo3,
+        //     //     drwtNo4,
+        //     //     drwtNo5,
+        //     //     drwtNo6,
+        //     //     bnusNo,
+        //     //     drwNoDate,
+        //     //     firstAccumamnt,
+        //     //     firstPrzwnerCo,
+        //     //     firstWinamnt,
+        //     //     returnValue
+        //     // }
+        //     data: action.payload.data
+        // };
     },
     [GET_POST_FAILURE]: (state, action) => {
         return {

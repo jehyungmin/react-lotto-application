@@ -1,0 +1,17 @@
+.titlelabel-wrap {
+    width: 100%;
+
+    display: flex;
+    justify-content: left;;
+    align-items: center;
+    text-align: left;
+}
+
+.titlelabel-title {
+    width: 40%;
+    font-weight: 600;
+}
+.titlelabel-value {
+    width: 60%;
+    padding-left: 1rem;
+}

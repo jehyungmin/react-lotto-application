@@ -4,6 +4,9 @@ import * as counterActions from '../modules/counter';
 import { bindActionCreators } from 'redux';
 import './Turn.css';
 import * as postActions from '../modules/post';
+import {LottoBall} from 'Components/LottoBall'
+import { TitleLabal } from './TitleLabal';
+import { LottoballGroup } from './LottoballGroup';
 
 class Turn extends Component {
     static defaultProps = {
@@ -52,17 +55,33 @@ class Turn extends Component {
                                 ? (<h2>오류발생!</h2>)
                                 : (
                                     <div>
-                                        <p className="lottoNum">{post.drwtNo1}</p>
-                                        <p className="lottoNum">{post.drwtNo2}</p>
-                                        <p className="lottoNum">{post.drwtNo3}</p>
-                                        <p className="lottoNum">{post.drwtNo4}</p>
-                                        <p className="lottoNum">{post.drwtNo5}</p>
-                                        <p className="lottoNum">{post.drwtNo6}</p>
-                                        <p className="lottoBNum">{post.bnusNo}</p>
-                                        <p className="sol">날짜 : {post.drwNoDate}</p>
+                                        <div className='lottoball-group'>
+                                            {/* <LottoBall drwtNo={post.drwtNo1} />
+                                            <LottoBall drwtNo={post.drwtNo2} />
+                                            <LottoBall drwtNo={post.drwtNo3} />
+                                            <LottoBall drwtNo={post.drwtNo4} />
+                                            <LottoBall drwtNo={post.drwtNo5} />
+                                            <LottoBall drwtNo={post.drwtNo6} />
+                                            <LottoBall drwtNo={post.bnusNo} /> */}
+                                            <LottoballGroup bollGroup = {post} />
+                                            <LottoballGroup bollGroup={post} />
+                                        </div>
+                                        <div className='lotooball-desc' >
+                                            <TitleLabal title={'날짜'} value={post.drwNoDate} />
+                                            <TitleLabal title={'총당첨금'} value={post.firstAccumamnt} />
+                                            <TitleLabal title={'1등 당첨자수'} value={post.firstPrzwnerCo} />
+                                            <TitleLabal title={'1등 수령액'} value={post.firstWinamnt} />
+                                            {/* <TitleLabal drwtDate={post.drwNoDate}/>
+                                            <TitleLabal drwtDate={post.firstAccumamnt} />
+                                            <TitleLabal drwtDate={post.firstPrzwnerCo} />
+                                            <TitleLabal drwtDate={post.firstWinamnt} /> */}
+                                        </div>
+                                        
+
+                                        {/* <p className="sol">날짜 : {post.drwNoDate}</p>
                                         <p className="sol">총당첨금 : {post.firstAccumamnt}</p>
                                         <p className="sol">1등 당첨자수 : {post.firstPrzwnerCo}</p>
-                                        <p className="sol">1등 수령액 : {post.firstWinamnt}</p>
+                                        <p className="sol">1등 수령액 : {post.firstWinamnt}</p> */}
                                         <p>{post.returnValue}</p>
                                     </div>
                                 )
