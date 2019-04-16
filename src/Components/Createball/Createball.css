@@ -1,0 +1,32 @@
+.lottoNum{
+    display: inline;
+    margin-right: 10px;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* color: #FFF; */
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    line-height: 43px;
+    margin-right: 10px;
+    
+    
+}
+
+.num-1-10 {
+    background-color: #F4C559;
+}
+.num-11-20 {
+    background-color: #97C5E4;
+}
+.num-21-30 {
+    background-color: #E49284;
+}
+.num-31-40 {
+    background-color: #A5A3DA;
+}
+.num-41-45 {
+    background-color: #84CBA1;
+}

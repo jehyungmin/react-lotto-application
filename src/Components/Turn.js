@@ -7,6 +7,7 @@ import * as postActions from '../modules/post';
 import {LottoBall} from 'Components/LottoBall'
 import { TitleLabal } from './TitleLabal';
 import { LottoballGroup } from './LottoballGroup';
+// import './Button.css';
 
 class Turn extends Component {
     static defaultProps = {
@@ -38,15 +39,25 @@ class Turn extends Component {
         }
     }
 
+    // stringFormat = (number) => {
+    //     number.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+    //     return number;
+    // }
+
+    numberWithCommas = (n) => {
+    var parts = n.toString().split(".");
+    return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
+    }
+
     render() {
         const { CounterActions, turn, post, error, loading } = this.props;
         //console.log("123", this.state.lotto)
+        
         return (
-
             <div >
                 <h2 className="turn">{turn}회차</h2>
-                <button onClick={CounterActions.increment}>+</button>
-                <button onClick={CounterActions.decrement}>-</button>
+                <button className="small red button" onClick={CounterActions.increment}>+</button>
+                <button className="small red button" onClick={CounterActions.decrement}>-</button>
                 {
                     loading
                         ? (<h2>로딩중...</h2>)
@@ -64,20 +75,20 @@ class Turn extends Component {
                                             <LottoBall drwtNo={post.drwtNo6} />
                                             <LottoBall drwtNo={post.bnusNo} /> */}
                                             <LottoballGroup bollGroup = {post} />
-                                            <LottoballGroup bollGroup={post} />
+                                            {post.drwtNo1}
+                                            {/* <LottoballGroup bollGroup={post} /> */}
                                         </div>
                                         <div className='lotooball-desc' >
                                             <TitleLabal title={'날짜'} value={post.drwNoDate} />
                                             <TitleLabal title={'총당첨금'} value={post.firstAccumamnt} />
                                             <TitleLabal title={'1등 당첨자수'} value={post.firstPrzwnerCo} />
-                                            <TitleLabal title={'1등 수령액'} value={post.firstWinamnt} />
+                                             <TitleLabal title={'1등 수령액'} value={post.firstWinamnt} />
                                             {/* <TitleLabal drwtDate={post.drwNoDate}/>
                                             <TitleLabal drwtDate={post.firstAccumamnt} />
                                             <TitleLabal drwtDate={post.firstPrzwnerCo} />
                                             <TitleLabal drwtDate={post.firstWinamnt} /> */}
                                         </div>
                                         
-
                                         {/* <p className="sol">날짜 : {post.drwNoDate}</p>
                                         <p className="sol">총당첨금 : {post.firstAccumamnt}</p>
                                         <p className="sol">1등 당첨자수 : {post.firstPrzwnerCo}</p>
