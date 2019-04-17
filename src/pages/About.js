@@ -25,7 +25,7 @@ import CreateballList from '../Components/CreateballList/CreateballList';
 
 
 class About extends Component {
-    id = 0;
+    // id = 0;
     state = {
         information: [],
     }
@@ -36,7 +36,7 @@ class About extends Component {
         this.setState({
             information: information.concat({
                 ...data,
-                id: this.id++
+                // id: this.id++
             })
         })
     }

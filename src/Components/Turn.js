@@ -75,7 +75,7 @@ class Turn extends Component {
                                             <LottoBall drwtNo={post.drwtNo6} />
                                             <LottoBall drwtNo={post.bnusNo} /> */}
                                             <LottoballGroup bollGroup = {post} />
-                                            {post.drwtNo1}
+                                            {/* {post.drwtNo1} */}
                                             {/* <LottoballGroup bollGroup={post} /> */}
                                         </div>
                                         <div className='lotooball-desc' >
