@@ -8,16 +8,15 @@ class CreateballList extends Component {
     }
     render() {
         const { data } = this.props;
-        console.log('ballList: ', data);
-        // const list = data.map(
-
-        //     info => (<Createball info={info} key={info.id} />)
-        // )
-        // console.log('ballList-list ; ', list)
+        //console.log('ballList: ', data);
+        const list = data.map(
+            info => (<Createball info={info} key={info.id} />)
+        )
+        console.log('ballList-list ; ', list)
         //console.log('data ; ', data[0])
 
-        const beforStr = data;
-        // const afterStr = beforStr.split(',');
+        //const beforStr = data;
+        //const afterStr = beforStr.split(',');
         // const afterStr = beforStr.split(',');
 
         // console.log('CreateballList-afterStr : ', afterStr);
@@ -25,8 +24,7 @@ class CreateballList extends Component {
 
         return (
             <div>
-                {/* {list} */}
-                
+                {list}
             </div>
         );
     }

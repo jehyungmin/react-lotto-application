@@ -10,7 +10,7 @@ const CreateballGroup = () => {
             <div className={styleName} >{afterStr[3]}</div>
             <div className={styleName} >{afterStr[4]}</div>
             <div className={styleName} >{afterStr[5]}</div> */}
-            <Createball cNumber={}></Createball>
+            {/* <Createball cNumber={}></Createball> */}
         </div>
     );
 };
