@@ -11,6 +11,7 @@ import _ from 'underscore';
 class Game extends Component {
     state = {
         lotto_nums : [],
+        chk_Click : 0,
     }
 
     generate = () => {
@@ -25,19 +26,38 @@ class Game extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-
         this.props.onCreate({
             lotto_nums: this.state.lotto_nums.join(', '),
         });
     }
 
-    reload = () => {
+    reload = (e) => {
+        e.preventDefault();
         window.location.reload();
     }
 
+    onlyOne = (e) => {
+        // e.preventDefault();
+        // this.generate()
+        // this.onClick = null;
+        console.log("chk_Click:",this.state.chk_Click);
+        if(this.state.chk_Click == 0){
+            this.setState({
+                ...this.state,
+               chk_Click : 1
+            })
+            return this.generate();
+        }else {
+            e.preventDefault();
+            return this.onClick=null;
+        }
+        
+    }
     render() {
+        
         return (
             <form onSubmit={this.handleSubmit}>
+                <button onClick={this.onlyOne}>당첨번호 조회</button>
                 <button type="submit" onClick={this.generate}>번호생성</button>
                 <button onClick={this.reload}>초기화</button>
             </form>
