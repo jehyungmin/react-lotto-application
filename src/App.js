@@ -125,7 +125,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div><h1>형민로또!</h1></div>
+        <div><h1>HyungMin Lotto!!!</h1></div>
         <Menu className="MenuCss" />
         <Route exact path="/" component={Home} />
         <Route exact path="/about" component={About} />

@@ -1,0 +1,161 @@
+.center.createBallBtn{
+    width:100px;
+}
+
+button.buttonStyle{
+    /* -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color:transparent;
+	-webkit-border-top-left-radius:0px;
+	-moz-border-radius-topleft:0px;
+	border-top-left-radius:0px;
+	-webkit-border-top-right-radius:0px;
+	-moz-border-radius-topright:0px;
+	border-top-right-radius:0px;
+	-webkit-border-bottom-right-radius:0px;
+	-moz-border-radius-bottomright:0px;
+	border-bottom-right-radius:0px;
+	-webkit-border-bottom-left-radius:0px;
+	-moz-border-radius-bottomleft:0px;
+	border-bottom-left-radius:0px;
+	text-indent:-6px;
+	display:inline-block;
+	color:#777777;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:normal;
+	font-style:normal;
+	height:50px;
+	line-height:50px;
+	width:83px;
+	text-decoration:none;
+	text-align:center;
+    text-shadow:1px 1px 0px #ffffff; */
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #ffffff;
+	padding: 13px 11px;
+	background: -moz-linear-gradient(
+		top,
+		#353535 0%,
+		#353535);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#353535),
+		to(#353535));
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+	border: 0px solid #ffffff;
+	-moz-box-shadow:
+		0px 1px 0px rgba(255,255,255,0),
+		inset 0px 0px 0px rgba(255,255,252,0);
+	-webkit-box-shadow:
+		0px 1px 0px rgba(255,255,255,0),
+		inset 0px 0px 0px rgba(255,255,252,0);
+	box-shadow:
+		0px 1px 0px rgba(255,255,255,0),
+		inset 0px 0px 0px rgba(255,255,252,0);
+	text-shadow:
+		0px 0px 0px rgba(255,255,255,0),
+		0px 0px 0px rgba(255,255,255,0);
+    margin-top: -10px;
+
+}
+
+/* Global Button Styles */
+a.animated-buttonGmae:link, a.animated-buttonGame:visited {
+	position: relative;
+	display: block;
+	margin: 30px auto 0;
+	padding: 14px 15px;
+	color: #fff;
+	font-size:14px;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	overflow: hidden;
+	letter-spacing: .08em;
+	border-radius: 0;
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	transition: all 1s ease;
+}
+a.animated-buttonGame:link:after, a.animated-buttonGame:visited:after {
+	content: "";
+	position: absolute;
+	height: 0%;
+	left: 50%;
+	top: 50%;
+	width: 150%;
+	z-index: -1;
+	-webkit-transition: all 0.75s ease 0s;
+	-moz-transition: all 0.75s ease 0s;
+	-o-transition: all 0.75s ease 0s;
+	transition: all 0.75s ease 0s;
+}
+a.animated-buttonGame:link:hover, a.animated-buttonGame:visited:hover {
+	color: #FFF;
+	text-shadow: none;
+}
+a.animated-buttonGame:link:hover:after, a.animated-buttonGame:visited:hover:after {
+	height: 450%;
+}
+a.animated-buttonGame:link, a.animated-buttonGame:visited {
+	position: relative;
+	display: block;
+	margin: 30px auto 0;
+	padding: 14px 15px;
+	color: #fff;
+	font-size:14px;
+	border-radius: 0;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	overflow: hidden;
+	letter-spacing: .08em;
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	transition: all 1s ease;
+}
+/* Victoria Buttons */
+div.center{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+    padding-top: 20px;
+}
+
+p.fontrelation{
+    margin: -10px 0 0 0;
+    padding: 1px 13px 24px 13px;
+}
+
+a.animated-buttonGame.victoria-threeGame {
+    border: 2px solid #D24D57;
+    width:80px;
+    display: flex;
+    justify-content: center;
+    height: 30px;
+}
+a.animated-buttonGame.victoria-threeGame:after {
+	background: #D24D57;
+	opacity: .5;
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+}
+a.animated-buttonGame.victoria-threeGame:hover:after {
+	height: 140%;
+	opacity: 1;
+}

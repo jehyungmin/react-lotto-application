@@ -8,10 +8,14 @@ import { TitleLabal } from './TitleLabal';
 import { LottoballGroup } from './LottoballGroup';
 import { Createball } from './Createball';
 import _ from 'underscore';
+import './Game.css';
 class Game extends Component {
     state = {
         lotto_nums : [],
         chk_Click : 0,
+        winNumber : [],
+        bonus_number : 0,
+
     }
 
     generate = () => {
@@ -24,10 +28,28 @@ class Game extends Component {
         });
     }
 
+    winGenerate = () => {
+        let winNumber = [];
+        _.times(45, n => winNumber.push(n + 1));
+        winNumber = _.shuffle(winNumber);
+        winNumber.length = 6;
+        this.setState({
+            winNumber
+        });
+    }
+
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.onCreate({
             lotto_nums: this.state.lotto_nums.join(', '),
+            winNumber: this.state.winNumber.join(', '),
+        });
+    }
+
+    winHandleSubmit = (e) => {
+        e.preventDefault();
+        this.props.onWinCreate({
+            winNumber : this.state.winNumber.join(', '),
         });
     }
 
@@ -46,20 +68,85 @@ class Game extends Component {
                 ...this.state,
                chk_Click : 1
             })
+            //this.winGenerate();
+            // this.state.lotto_nums.unshift(this.state.winNumber);
+            // this.setState({
+            // });            
+        
             return this.generate();
         }else {
             e.preventDefault();
             return this.onClick=null;
         }
         
+        
     }
+
+    getRandomNum = () => {
+        let rand_num = Math.floor(Math.random() * 45 + 1)
+        return rand_num
+    }
+
+    checkDuplicatedNum = (lotto_num, ball_num) => {
+        if(lotto_num.includes(ball_num)){
+            return true
+        }else {
+            return false
+        }
+    }
+
+    getWinNumberAnsBonusNumber = () => {
+        const winNumber = this.getLottoNums();
+        const bonus_number = this.getRandomNum();
+        this.setState({
+            bonus_number
+        });
+        while(true){
+            // const bonus_number = this.getRandomNum();
+            // this.setState({
+            //     bonus_number
+            // });
+
+            if (this.checkDuplicatedNum(winNumber, bonus_number)){
+                continue
+            }else {
+                break
+            }
+        }
+        return winNumber, bonus_number
+    }
+
+    getLottoNums = () => {
+        let winNumber = [];
+        _.times(45, n => winNumber.push(n + 1));
+        winNumber = _.shuffle(winNumber);
+        winNumber.length = 6;
+        this.setState({
+            winNumber
+        });
+        return winNumber;
+    }
+
+
+    checkWinLotto = (e) => {
+        e.preventDefault();
+        this.getWinNumberAnsBonusNumber();
+        const information = this.props;
+        console.log('this.props.information :', information)
+    }
+
     render() {
         
         return (
             <form onSubmit={this.handleSubmit}>
-                <button onClick={this.onlyOne}>당첨번호 조회</button>
-                <button type="submit" onClick={this.generate}>번호생성</button>
-                <button onClick={this.reload}>초기화</button>
+                {/* <button type="submit" onClick={this.generate}>번호생성</button> */}
+                {/* <button onClick={this.onlyOne}>당첨번호 조회</button> */}
+                {/* <button onClick={this.checkWinLotto}>결과보기</button> */}
+                {/* <button onClick={this.reload}>초기화</button> */}
+                <div className="center">
+                    <div className="createBallBtn"> <a href="#" className="btn btn-sm animated-buttonGame victoria-threeGame"><p onClick={this.generate} className="fontrelation"><button className="buttonStyle fontrelation" type="submit">번호생성</button></p></a> </div>
+                    <div className=""> <a href="#" className="btn btn-sm animated-buttonGame victoria-threeGame"><p onClick={this.reload} className="fontrelation">초기화</p></a> </div>
+                </div>
             </form>
         );
     }

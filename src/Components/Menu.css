@@ -1,6 +1,5 @@
 ul {
     list-style:none;
-    width:100%;
     height: 20px;
 }
 
@@ -13,9 +12,28 @@ ul {
 
 .UID ul li {
     text-align: center;
+
 }
 
 .UID {
 text-align: center;
-
+padding-top: 15px;
 }
+
+div.ulLiPosition{
+    padding-top: 20px;
+    text-align: center;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    padding-right: 55px;
+}
+
+ul li.position{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    
+}
+

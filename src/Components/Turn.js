@@ -52,18 +52,22 @@ class Turn extends Component {
     render() {
         const { CounterActions, turn, post, error, loading } = this.props;
         //console.log("123", this.state.lotto)
-        
+        const returnValue = post.returnValue;
+        console.log('return: ', returnValue);
+        console.log('post: ', post);
         return (
             <div >
+                <div className="center">
                 <h2 className="turn">{turn}회차</h2>
-                <button className="small red button" onClick={CounterActions.increment}>+</button>
-                <button className="small red button" onClick={CounterActions.decrement}>-</button>
+                    <div className=""> <a href="#" className="btn btn-sm animated-button victoria-three"><p onClick={CounterActions.increment} className="fontrelation">+</p></a> </div>
+                    <div className=""> <a href="#" className="btn btn-sm animated-button victoria-three"><p onClick={CounterActions.decrement} className="fontrelation">-</p></a> </div>
+                </div>
                 {
                     loading
-                        ? (<h2>로딩중...</h2>)
+                         ? (<h2>로딩중...</h2>)
                         : (
                             error
-                                ? (<h2>오류발생!</h2>)
+                                ? (<h2>아직 {turn}회차 발표일이 아닙니다.</h2>)
                                 : (
                                     <div>
                                         <div className='lottoball-group'>
@@ -93,13 +97,14 @@ class Turn extends Component {
                                         <p className="sol">총당첨금 : {post.firstAccumamnt}</p>
                                         <p className="sol">1등 당첨자수 : {post.firstPrzwnerCo}</p>
                                         <p className="sol">1등 수령액 : {post.firstWinamnt}</p> */}
-                                        <p>{post.returnValue}</p>
+                                        {/* <p>{post.returnValue}</p> */}
                                     </div>
                                 )
                         )
                 }
                 {/* {this.state.lotto ? this._renderLotto() : "logding"}  */}
                 {/* {this._renderLotto()} */}
+                
             </div>
         );
     }

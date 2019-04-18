@@ -55,13 +55,16 @@ export default handleActions({
         console.log("#### action : ", action);
         // const { drwtNo1, drwtNo2, drwtNo3, drwtNo4, drwtNo5, drwtNo6, bnusNo, drwNoDate, firstAccumamnt, firstPrzwnerCo, firstWinamnt, returnValue} = action.payload.data;
         const result = action.payload.data;
+        console.log('action.payload.data :', result);
+        console.log('result.returnValue :', result.returnValue);
 
         let newState ;
         if ( result.returnValue !== 'success') {
             newState = {
                 ...state,
+                pending: false,
                 error: true,
-                data: state.data
+                data: action.payload.data
             }
         } else {
             newState = {
