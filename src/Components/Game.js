@@ -17,15 +17,21 @@ class Game extends Component {
         bonus_number : 0,
 
     }
+    
 
     generate = () => {
+        console.log("====== generate ======")
         let lotto_nums = [];
         _.times(45, n => lotto_nums.push(n + 1));
         lotto_nums = _.shuffle(lotto_nums);
         lotto_nums.length = 6;
+        console.log('Get lotto num : ', lotto_nums);
         this.setState({
-            lotto_nums
+            lotto_nums: lotto_nums
         });
+
+        const { onCreate } = this.props;
+        onCreate(lotto_nums);
     }
 
     winGenerate = () => {
@@ -40,10 +46,11 @@ class Game extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.onCreate({
-            lotto_nums: this.state.lotto_nums.join(', '),
-            winNumber: this.state.winNumber.join(', '),
-        });
+        // this.props.onCreate({
+        //     //lotto_nums: this.state.lotto_nums.join(', '),
+        //     lotto_nums: this.state.lotto_nums,
+        //     winNumber: this.state.winNumber.join(', '),
+        // });
     }
 
     winHandleSubmit = (e) => {
@@ -54,8 +61,10 @@ class Game extends Component {
     }
 
     reload = (e) => {
-        e.preventDefault();
-        window.location.reload();
+        // e.preventDefault();
+        // window.location.reload();
+        const { onRemove } = this.props;
+        onRemove();
     }
 
     onlyOne = (e) => {
