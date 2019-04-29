@@ -4,8 +4,8 @@ import './CreateLottoBall.css';
 const CreateLottoBall = ({cNumber}) => {
 
     let styleName = 'lottoNum'
-    for (var i = 0; i < 6; i++) {
-        console.log('afterStr', cNumber);
+    for (var i = 0; i < 7; i++) {
+        // console.log('afterStr', cNumber);
         if (cNumber > 1 && cNumber <= 10) {
             styleName = 'lottoNum num-1-10'
         } else if (cNumber > 10 && cNumber <= 20) {

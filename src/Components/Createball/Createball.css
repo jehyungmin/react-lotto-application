@@ -2,5 +2,19 @@
     width:100%;
     display: flex;
     justify-content: center;
-    
+    /* margin-left: -15px; */
+    margin-left: -5px;
+}
+
+.result {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+    margin-right: -15px;
+    /* color: red; */
+}
+
+.pluse{
+    margin-top: 10px;
+    margin-left: -7px;
 }

@@ -8,8 +8,9 @@ class CreateballList extends Component {
     }
    
     render() {
-        const { data, winData } = this.props;
+        const { data, winData, createWinBallList, result } = this.props;
         console.log('ballList: ', data);
+        console.log('CreateballListresult', result);
         
         // const list = data.map(
             // data
@@ -18,9 +19,31 @@ class CreateballList extends Component {
             //     : (console.log('ballList-list ; ', list)),
 
             let count = 0;
-        const list = data.map ( info => {
-            return <Createball info={info} key={count++} />
-        } )
+            let resultCount = 0;
+            
+            // const list = data.map ( info => {
+            //     return <Createball result={result} createWinBallList={createWinBallList} info={info} key={count++} />
+            // } )
+
+            const list = data.map(info => {
+                console.log(info);
+                // let resultCount = -1;
+                // resultCount = resultCount +1;
+               
+                return (
+                    <div>
+                        <Createball 
+                            createWinBallList={createWinBallList} 
+                            info={info} 
+                            key={count++} 
+                            result={result}
+                            resultCount={resultCount++}
+                        />
+                    </div>
+                )
+            })
+
+            
 
             // winData
             //     ? (winInfo => (<Createball winInfo={winInfo} key={winInfo.id} />))
@@ -39,7 +62,7 @@ class CreateballList extends Component {
                 {
                     list !== null && list
                 }
-               
+                
             </div>
         );
     }

@@ -11,7 +11,7 @@ const LottoballGroup = ({ bollGroup }) => {
             <LottoBall drwtNo={bollGroup.drwtNo4} />
             <LottoBall drwtNo={bollGroup.drwtNo5} />
             <LottoBall drwtNo={bollGroup.drwtNo6} />
-            {/* <p>+ </p> */}
+            <p className="pluse">+</p>
             <LottoBall drwtNo={bollGroup.bnusNo} />
         </div>
     );
