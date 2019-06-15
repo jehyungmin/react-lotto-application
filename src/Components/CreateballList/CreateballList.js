@@ -9,8 +9,8 @@ class CreateballList extends Component {
    
     render() {
         const { data, winData, createWinBallList, result } = this.props;
-        console.log('ballList: ', data);
-        console.log('CreateballListresult', result);
+        // console.log('ballList: ', data);
+        // console.log('CreateballListresult', result);
         
         // const list = data.map(
             // data
@@ -26,7 +26,7 @@ class CreateballList extends Component {
             // } )
 
             const list = data.map(info => {
-                console.log(info);
+                // console.log(info);
                 // let resultCount = -1;
                 // resultCount = resultCount +1;
                

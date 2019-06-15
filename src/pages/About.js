@@ -20,7 +20,7 @@ class About extends Component {
     }
 
     handleCreate = (data) => {
-        console.log("About_data :",data);
+        // console.log("About_data :",data);
         const { information } = this.state;
         this.setState({
             information: information.concat({
@@ -31,8 +31,8 @@ class About extends Component {
     }
 
     handleGameCreate = (data) => {
-        console.log("====== handleGameCreate ======")
-        console.log("About_data :", data);
+        // console.log("====== handleGameCreate ======")
+        // console.log("About_data :", data);
         const { information } = this.state;
         this.setState({
             information: information.concat(
@@ -42,17 +42,17 @@ class About extends Component {
             )
         })
 
-        console.log("state : ", this.state);
+        // console.log("state : ", this.state);
     }
 
     handleDrawCreate = async (data) => {
-        console.log("====== handleDrawCreate ======")
-        console.log("About_data :", data);
+        // console.log("====== handleDrawCreate ======")
+        // console.log("About_data :", data);
         let data_bonus_number = data[6];
 
         const dataSix = [data[0], data[1], data[2], data[3], data[4], data[5]];
         
-        console.log("About_data :", [data]);
+        // console.log("About_data :", [data]);
 
         // state에 당첨번호 저장
         await this.setState({
@@ -69,13 +69,13 @@ class About extends Component {
         let winningResult = [];
         information.map( game => {
             // 각 게임마다 담청결과랑 비교하자
-            console.log(" data : ", data);
-            console.log(" dataSix : ", dataSix);
-            console.log(" game : ", game);
+            // console.log(" data : ", data);
+            // console.log(" dataSix : ", dataSix);
+            // console.log(" game : ", game);
             this.setState({
                 nowGameBall: game
             });
-            console.log("nowGameBall", this.state.nowGameBall);
+            // console.log("nowGameBall", this.state.nowGameBall);
             //console.log(game.numbers)
             // 일치하는 갯수
             let count = 0;
@@ -93,15 +93,15 @@ class About extends Component {
             })
             // 갯수만큼 등수를 매겨서 result에 저장하자.
             result[games] = count;
-            console.log('result', result);
+            // console.log('result', result);
 
             winningResult = winningResult.concat(this.getWinningResult(count));
-            console.log('winningResult', winningResult);
+            // console.log('winningResult', winningResult);
 
         })
 
          // 결과를 state에 저장하자.
-        console.log('result : ', result);
+        // console.log('result : ', result);
         this.setState({
             results: result
         });
@@ -111,7 +111,7 @@ class About extends Component {
     }
 
     handleWinNumCreate = (winData) => {
-        console.log("About_winData :", winData);
+        // console.log("About_winData :", winData);
         const { winInformation } = this.state;
         this.setState({
             winInformation: winInformation.concat({
@@ -173,8 +173,8 @@ class About extends Component {
         //const information = this.state.information
         const { information } = this.state;
         const infoLength = information.length;
-        console.log("information", this.state.information);
-        console.log("information_length : ", information[(infoLength)-1])
+        // console.log("information", this.state.information);
+        // console.log("information_length : ", information[(infoLength)-1])
         
 
         const {color} = query;

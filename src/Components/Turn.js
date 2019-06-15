@@ -27,7 +27,7 @@ class Turn extends Component {
     }
 
     componentDidMount() {
-        console.log("componentDidMount");
+        // console.log("componentDidMount");
         // axios.get('/common.do?method=getLottoNumber&drwNo=852')
         // .then(res => console.log(res))
         this.loadData();
@@ -52,9 +52,9 @@ class Turn extends Component {
     render() {
         const { CounterActions, turn, post, error, loading } = this.props;
         //console.log("123", this.state.lotto)
-        const returnValue = post.returnValue;
-        console.log('return: ', returnValue);
-        console.log('post: ', post);
+        // const returnValue = post.returnValue;
+        // console.log('return: ', returnValue);
+        // console.log('post: ', post);
         return (
             <div >
                 <div className="center">

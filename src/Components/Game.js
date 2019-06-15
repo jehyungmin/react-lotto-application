@@ -15,12 +15,12 @@ class Game extends Component {
     }  
 
     generate = () => {
-        console.log("====== generate ======");
+        // console.log("====== generate ======");
         let lotto_nums = [];
         _.times(45, n => lotto_nums.push(n + 1));
         lotto_nums = _.shuffle(lotto_nums);
         lotto_nums.length = 6;
-        console.log('Get lotto num : ', lotto_nums);
+        // console.log('Get lotto num : ', lotto_nums);
         this.setState({
             lotto_nums: lotto_nums.sort((a, b) => { return a - b })
         });
@@ -29,13 +29,13 @@ class Game extends Component {
     }
 
     generateWin = () => {
-        console.log("====== generateWin ======");
+        // console.log("====== generateWin ======");
         let lotto_nums = [];
         let bonus_number = '';
         _.times(45, n => lotto_nums.push(n + 1));
         lotto_nums = _.shuffle(lotto_nums);
         lotto_nums.length = 6;
-        console.log('Get lotto num : ', lotto_nums);
+        // console.log('Get lotto num : ', lotto_nums);
 
         this.setState({
             lotto_nums: lotto_nums.sort((a, b) => { return a - b })
@@ -46,7 +46,7 @@ class Game extends Component {
             this.setState({
                 bonus_number: bonus_number
             });
-            console.log('====bonus_number==== : ', bonus_number);
+            // console.log('====bonus_number==== : ', bonus_number);
 
             if (this.checkDuplicatedNum(lotto_nums, bonus_number)) {
                 continue
@@ -58,9 +58,9 @@ class Game extends Component {
         const { onCreate } = this.props;
 
         const lotto_nums_push = lotto_nums.push(bonus_number);
-        console.log(lotto_nums_push);
-        console.log('====lotto_nums====', lotto_nums);
-        console.log('====lotto_nums_push====', lotto_nums_push);
+        // console.log(lotto_nums_push);
+        // console.log('====lotto_nums====', lotto_nums);
+        // console.log('====lotto_nums_push====', lotto_nums_push);
 
         onCreate(lotto_nums);
     }
@@ -165,7 +165,7 @@ class Game extends Component {
         e.preventDefault();
         this.getWinNumberAnsBonusNumber();
         const information = this.props;
-        console.log('this.props.information :', information)
+        // console.log('this.props.information :', information)
     }
 
     render() {
